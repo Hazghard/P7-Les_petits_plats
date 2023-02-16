@@ -1,0 +1,114 @@
+// BOOTSTRAP MODIFIERS
+.btn {
+    // width: 170px;
+    height: 69px;
+}
+
+
+.dropdownFilters__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 20px;
+
+    & .chevron {
+        position: absolute;
+    }
+}
+
+.dropdown-menu {
+    // display: block;
+    position: unset;
+}
+
+.dropdown input[type="text"] {
+    width: 100%;
+    // max-width: 80%;
+    /* ou une valeur appropriée pour votre cas */
+}
+
+.colonne {
+    column-count: 3;
+    column-gap: 20px;
+    height: fit-content;
+    width: fit-content;
+}
+
+// INGREDIENTS FILTER BTN
+.filterBtn--color__ingredients {
+    background-color: $color__ingredients;
+    text-align: start;
+}
+
+.filterBtn--color__ingredients::placeholder {
+    color: white;
+}
+
+.filterBtn--color__ingredients:focus {
+    background-color: darken($color: $color__ingredients, $amount: 20);
+}
+
+.filterBtn--color__ingredients:hover {
+    background-color: darken($color: $color__ingredients, $amount: 20);
+}
+
+// -------------------------------------------------------------------------------------------------------
+
+
+// APPAREILS FILTER BTN
+.filterBtn--color__appareils {
+    background-color: $color__appareils;
+    text-align: start;
+
+}
+
+.filterBtn--color__appareils::placeholder {
+    color: white;
+}
+
+.filterBtn--color__appareils:hover {
+    background-color: darken($color: $color__appareils, $amount: 20);
+}
+
+// -------------------------------------------------------------------------------------------------------
+
+
+// USTENSILS FILTER BTN
+.filterBtn--color__ustensiles {
+    background-color: $color__ustensiles;
+    text-align: start;
+}
+
+.filterBtn--color__ustensiles::placeholder {
+    color: white;
+}
+
+.filterBtn--color__ustensiles:hover {
+    background-color: darken($color: $color__ustensiles, $amount: 20);
+}
+
+// -------------------------------------------------------------------------------------------------------
+
+.fa-chevron {
+    position: absolute;
+    top: 26px;
+    right: 1rem;
+    color: white;
+}
+
+.fa-chevron:hover {
+    cursor: pointer;
+    transition: all 1s ease-in-out;
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: -34%;
+        left: -47%;
+        width: 1.75rem;
+        height: 1.75rem;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+    }
+}

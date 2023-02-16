@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1440px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 42px 0px 17px 0px;
+
+    & .logo {
+        width: 50px;
+    }
+
+    & h1 {
+        font-family: 'DM Sans', sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 47px;
+        text-align: center;
+        color: #D04F4F;
+    }
+}
+
+
+
+
+/* ----------------------------------------------------------- */
+/* ----------------------------------------------------------- */
+/* ----------------------------------------------------------- */
+
+
+.section--filters__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding: 0px 100px 0px 100px;
+
+    & .textFilter__container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        & .recipeFilter__input {
+            width: 100%;
+            height: 69px;
+            background: #E7E7E7;
+            border-radius: 5px;
+            border: none;
+            padding-left: 24px;
+            font-size: 18px;
+        }
+
+        & .recipeFilter__input::placeholder {
+            color: #000000;
+            opacity: 0.25;
+        }
+
+    }
+
+    & .textFilter__container .fa-magnifying-glass {
+        position: absolute;
+        right: 16.5px;
+        font-size: 32px;
+    }
+}
+
+
+
+
+/* ----------------------------------------------------------- */
+/* ----------------------------------------------------------- */
+/* ----------------------------------------------------------- */
+
+.currentFilters__container {
+    padding: 25px 0px 15px 0px;
+
+    & .filterBtn {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 13px;
+        padding: 8px 22px 9px 20px;
+        border-radius: 5px;
+        color: white;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        border: none;
+    }
+
+    & .filterBtn .fa-circle-xmark {
+        font-size: 20px;
+        font-size: 300;
+    }
+
+}
+
+
+
+/* ----------------------------------------------------------- */
+/* ----------------------------------------------------------- */
+/* ----------------------------------------------------------- */
+
+main {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: stretch;
+    padding: 25px 100px 0px 100px;
+}

@@ -1,0 +1,101 @@
+.card__container {
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    height: 364px;
+    width: 380px;
+
+    & .card--imgSection {
+        height: 178px;
+        width: 380px;
+        background-color: #C7BEBE;
+        border-radius: 5px 5px 0px 0px;
+        // & img {
+        //     height: 100%;
+        //     width: 100%;
+        //     object-fit: cover;
+        // }
+    }
+
+    & .card--txtSection {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 20px 20px 20px;
+        border-radius: 0px 0px 5px 5px;
+        background-color: #E7E7E7;
+    }
+
+    & .card--txtSection__Title {
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 20px;
+        justify-content: space-between;
+
+        & h2 {
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 22px;
+            color: #000000;
+        }
+
+        & .card--txtSection__timerContainer {
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 7px;
+
+            & em {
+                font-size: 20px;
+                color: #000000;
+            }
+
+            & p {
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 22px;
+                color: #000000;
+            }
+        }
+    }
+
+    & .card--txtSection__List {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        & ul {
+            list-style: none;
+            padding: 0;
+
+            & li {
+                display: flex;
+                flex-direction: row;
+            }
+
+            & li h3,
+            span {
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 12px;
+                line-height: 14px;
+                color: #000000;
+            }
+
+        }
+
+        & p {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 12px;
+            color: #000000;
+        }
+    }
+}

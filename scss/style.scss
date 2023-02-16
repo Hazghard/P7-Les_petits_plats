@@ -1,0 +1,13 @@
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../node_modules/bootstrap/scss/bootstrap-grid.scss";
+
+
+@import "./_utils/variables";
+@import "./_utils/mixin";
+@import "_utils/boostrapModifiers";
+
+@import "./components/btn.scss";
+@import "./components/card.scss";
+
+
+@import "layout/index.scss";

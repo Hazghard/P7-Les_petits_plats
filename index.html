@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="#"> <!-- METTRE FAVICON  -->
+    <title>Les petits plats</title>
+    <script src="https://kit.fontawesome.com/2dec1c1a71.js" crossorigin="anonymous"></script>
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <header>
+        <img src="assets/logo.png" alt="logo les petits plats" class="logo">
+        <h1>Les petits plats</h1>
+    </header>
+    <section id="section--filters__container" class="section--filters__container">
+
+        <div class="textFilter__container">
+            <input type="text" name="" id="recipeFilter__input" class="recipeFilter__input"
+                placeholder="Rechercher une recette">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <div id="currentFilters__container" class="currentFilters__container">
+            <button class="filterBtn filterBtn--color__ingredients">
+                <span>TestBtn</span>
+                <i class="fa-regular fa-circle-xmark"></i>
+            </button>
+        </div>
+
+        <div id="dropdownFilters__container" class="dropdownFilters__container">
+
+            <!-- BOOSTRAP DROPDOWN BTN -->
+
+            <!-- INGREDIENTS BTN -->
+            <div class="dropdown">
+                <i id="ingredientsExpend" class="fa-solid fa-chevron-down fa-chevron"></i>
+                <input class="btn btn-secondary dropdown-toggle filterBtn--color__ingredients" type="text"
+                    id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" placeholder="Ingredients">
+                <ul class="dropdown-menu colonne" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li>Ingredients 1</li>
+                    <li>Ingredients 2</li>
+                    <li>Ingredients 3</li>
+                    <li>Ingredients 4</li>
+                    <li>Ingredients 5</li>
+                    <li>Ingredients 6</li>
+                    <li>Ingredients 7</li>
+                    <li>Ingredients 8</li>
+                    <li>Ingredients 9</li>
+                    <li>Ingredients 10</li>
+                    <li>Ingredients 11</li>
+                </ul>
+            </div>
+
+            <!-- Appareils BTN -->
+            <div class="dropdown">
+                <i id="appareilsExpend" class="fa-solid fa-chevron-down fa-chevron"></i>
+                <input class="btn btn-secondary dropdown-toggle filterBtn--color__appareils" type="text"
+                    id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" placeholder="Appareils">
+                <ul class="dropdown-menu colonne" aria-labelledby="dropdownMenuButton2">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li>Appareils 1</li>
+                    <li>Appareils 2</li>
+                    <li>Appareils 3</li>
+                    <li>Appareils 4</li>
+                    <li>Appareils 5</li>
+                    <li>Appareils 6</li>
+                    <li>Appareils 7</li>
+                    <li>Appareils 8</li>
+                    <li>Appareils 9</li>
+                    <li>Appareils 10</li>
+                    <li>Appareils 11</li>
+                </ul>
+            </div>
+
+
+            <!-- Ustensils BTN -->
+            <div class="dropdown">
+                <i id="ustensilesExpend" class="fa-solid fa-chevron-down fa-chevron"></i>
+                <input class="btn btn-secondary dropdown-toggle filterBtn--color__ustensiles" type="text"
+                    id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false" placeholder="Ustensiles">
+                <ul class="dropdown-menu colonne" aria-labelledby="dropdownMenuButton3">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li>Ustensiles 1</li>
+                    <li>Ustensiles 2</li>
+                    <li>Ustensiles 3</li>
+                    <li>Ustensiles 4</li>
+                    <li>Ustensiles 5</li>
+                    <li>Ustensiles 6</li>
+                    <li>Ustensiles 7</li>
+                    <li>Ustensiles 8</li>
+                    <li>Ustensiles 9</li>
+                    <li>Ustensiles 10</li>
+                    <li>Ustensiles 11</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <main id="recipesGrid">
+        <article class="card__container">
+            <section class="card--imgSection">
+                <!-- <img src="" alt="" class="card--imgSection__img"> -->
+            </section>
+            <section class="card--txtSection">
+                <div class="card--txtSection__Title">
+                    <h2>Limonade de Coco</h2>
+                    <div class="card--txtSection__timerContainer">
+                        <em class="fa-regular fa-clock"></em>
+                        <p>10 min</p>
+                    </div>
+                </div>
+                <div class="card--txtSection__List">
+                    <ul>
+                        <li>
+                            <h3>Lait de coco:</h3>
+                            <span>400ml</span>
+                        </li>
+                        <li>
+                            <h3>Jus de citron:</h3>
+                            <span>2</span>
+                        </li>
+                        <li>
+                            <h3>Créme de coco:</h3>
+                            <span>4 cuillères</span>
+                        </li>
+                        <li>
+                            <h3>Sucre:</h3>
+                            <span>20g</span>
+                        </li>
+                        <li>
+                            <h3>Glaçons:</h3>
+                            <span>2</span>
+                        </li>
+                    </ul>
+                    <p>Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2
+                        citrons et le sucre. Mixer jusqu'à avoir la consistence désirée.</p>
+                </div>
+            </section>
+        </article>
+
+    </main>
+    <script type="module" src="./data/recipes.js"></script>
+    <script type="module" src="./scripts/page/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,174 @@
+                                  +---------------+
+                                  |     Start     |
+                                  +---------------+
+                                          |
+                                          V
+                                  +---------------+
+                                  | Check Filters |
+                                  +---------------+
+                                          |
+                          +---------------+---------------+
+                          |                               |
+                      Filters Empty                   Filters Present
+                          |                               |
+                          V                               V
+                  +---------------+               +-----------------+
+                  | Copy All Recipes |               | Filter Recipes  |
+                  +---------------+               +-----------------+
+                          |                               |
+                          V                               V
+                  +---------------+               +-----------------+
+                  |     Return    |               |   Return Filtered|
+                  | filteredRecipes|               |      Recipes    |
+                  +---------------+               +-----------------+
+                                          |
+                                          V
+                                      +-------+
+                                      |  End  |
+                                      +-------+
+          
+                    Filters Present                                   Filters Empty
+                            |                                               |
+                            V                                               V
+              +---------------------------+               +---------------------------+
+              | Check Input Filters        |               | No Input Filters           |
+              +---------------------------+               +---------------------------+
+                            |                                               |
+            +---------------+---------------+               +---------------+---------------+
+            |                               |               |                               |
+          Yes (Input Empty)             No (Input Present)    Continue Filtering          Continue Filtering
+            |                               |               |                               |
+            V                               V               V                               V
+    +---------------+               +---------------+   +---------------+               +---------------+
+    |   Check       |               |    Check      |   | Check         |               |    Check      |
+    |   Ingredients |               |   Appareils   |   |  Ustensiles   |               |   No Filters   |
+    +---------------+               +---------------+   +---------------+               +---------------+   
+            |                               |               |               |               |
+            V                               V               V               V               V
+        +---------------+         +---------------+   +---------------+   +---------------+   +---------------+
+        | Input Empty   |         | Check Appareils|   | Check          |   | Check Ustensiles|   | Copy All Recipes|
+        | and No Other  |         +---------------+   |  Ingredients  |   +---------------+   +---------------+
+        | Filters       |                               +---------------+               |               |
+        |               |                                               |               V               V
+        | Return All    |                                               |     +---------------+   +---------------+
+        | Recipes       |                                               |     | Filter        |   |  Return       |
+        +---------------+                                               |     | By Ingredients|   | Filtered      |
+                                                                        |     +---------------+   | Recipes       |
+                                                                        |               |         +---------------+
+                                                                        V               V
+                                                                +---------------+   +---------------+
+                                                                | Check         |   | Check         |
+                                                                | Appareils     |   | Ustensiles    |
+                                                                +---------------+   +---------------+
+                                                                        |               |
+                                                                Yes (Filters Present)   |
+                                                                        V               |
+                                                                +---------------+       |
+                                                                | Filter Recipes|       |
+                                                                | By Appareils  |       |
+                                                                +---------------+       |
+                                                                        |               |
+                                                                        V               |
+                                                                +---------------+       |
+                                                                | Filter Recipes|       |
+                                                                | By Ustensiles |       |
+                                                                +---------------+       |
+                                                                        |               |
+                                                                        V               V
+                                                                +---------------+   +---------------+
+                                                                | Return Filtered|   | Return Filtered|
+                                                                | Recipes       |   | Recipes       |
+                                                                +---------------+   +---------------+
+                                                                        |               |
+                                                                        V               V
+                                                                    +-------+         +-------+
+                                                                    |  End  |         |  End  |
+                                                                    +-------+         +-------+
+
+
+
+
+
+start
+|
+|__ if (choosenFilters.input.length < 1 && choosenFilters.ingredientsFilter.length == 0 && choosenFilters.appareilsFilter.length == 0 && choosenFilters.ustensilesFilter.length == 0)
+|      |
+|      |__ filteredRecipies = [...workingRecipes];
+|
+|__ else
+      |
+      |__ filteredRecipies = workingRecipes.filter(recipe => {
+            |
+            |__ if (choosenFilters.input.length > 0)
+            |      |
+            |      |__ choosenFilters.input.every(word => {
+            |            |
+            |            |__ return recipe.name.toLowerCase().includes(word) || recipe.description.toLowerCase().includes(word) || recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(word));
+            |         });
+            |
+            |__ if (choosenFilters.ingredientsFilter.length > 0)
+            |      |
+            |      |__ choosenFilters.ingredientsFilter.every(ingredientTag => {
+            |            |
+            |            |__ return recipe.ingredients.some(ingredient => ingredient.ingredient.search(ingredientTag) !== -1);
+            |         });
+            |
+            |__ if (choosenFilters.appareilsFilter.length > 0)
+            |      |
+            |      |__ choosenFilters.appareilsFilter.every(appareilTag => {
+            |            |
+            |            |__ return recipe.appliance.some(appareil => appareil.search(appareilTag) !== -1);
+            |         });
+            |
+            |__ if (choosenFilters.ustensilesFilter.length > 0)
+                  |
+                  |__ choosenFilters.ustensilesFilter.every(ustensileTag => {
+                        |
+                        |__ return recipe.ustensils.some(ustensil => ustensil.toLowerCase() == ustensileTag.toLowerCase());
+                  });
+      });
+
+
+
+
+
+
+
+Début
+|
+|----> Récupérer une recette de workingRecipes
+        |
+        |----> Extraire les mots de la recette (nom, description, ingrédients)
+        |        |
+        |        |----> Mettre tous les mots en minuscule et les séparer en un tableau
+        |                  |
+        |                  |----> Si choosenFilters.input n'est pas vide, vérifier si tous les mots de choosenFilters.input sont inclus dans le tableau de mots
+        |                  |         |
+        |                  |         |----> Si oui, retourner vrai
+        |                  |         |
+        |                  |         |----> Sinon, continuer à vérifier la recette avec les autres filtres
+        |                  |
+        |                  |----> Si choosenFilters.ingredientsFilter n'est pas vide, vérifier si chaque filtre d'ingrédients est présent dans la recette
+        |                  |         |
+        |                  |         |----> Si oui, retourner vrai
+        |                  |         |
+        |                  |         |----> Sinon, continuer à vérifier la recette avec les autres filtres
+        |                  |
+        |                  |----> Si choosenFilters.appareilsFilter n'est pas vide, vérifier si chaque filtre d'appareils est présent dans la recette
+        |                  |         |
+        |                  |         |----> Si oui, retourner vrai
+        |                  |         |
+        |                  |         |----> Sinon, continuer à vérifier la recette avec les autres filtres
+        |                  |
+        |                  |----> Si choosenFilters.ustensilesFilter n'est pas vide, vérifier si chaque filtre d'ustensiles est présent dans la recette
+        |                            |
+        |                            |----> Si oui, retourner vrai
+        |                            |
+        |                            |----> Sinon, continuer à vérifier la recette avec les autres filtres
+        |
+        |----> Si aucun filtre n'a été appliqué ou si aucun filtre n'a été satisfait, passer à la recette suivante
+        |
+        |----> Si toutes les recettes ont été parcourues et qu'aucune recette n'a été trouvée avec les filtres choisis, retourner un tableau vide
+        |
+        |----> Sinon, retourner un tableau de recettes filtrées
+Fin

@@ -15,6 +15,8 @@ body {
     max-width: 1440px;
 }
 
+
+
 header {
     display: flex;
     flex-direction: column;
@@ -50,9 +52,10 @@ header {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     position: relative;
     padding: 0px 100px 0px 100px;
+    min-height: 240px;
 
     & .textFilter__container {
         width: 100%;
@@ -60,6 +63,7 @@ header {
         justify-content: center;
         align-items: center;
         position: relative;
+        padding-bottom: 20px;
 
         & .recipeFilter__input {
             width: 100%;
@@ -92,8 +96,19 @@ header {
 /* ----------------------------------------------------------- */
 /* ----------------------------------------------------------- */
 
+.currentFilters__container:empty {
+    display: none;
+    padding: 0px 0px 0px 0px;
+
+}
+
 .currentFilters__container {
-    padding: 25px 0px 15px 0px;
+    padding: 5px 0px 15px 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+
 
     & .filterBtn {
         display: flex;
@@ -115,6 +130,10 @@ header {
         font-size: 300;
     }
 
+    & .filterBtn .fa-circle-xmark:hover {
+        color: #141313;
+    }
+
 }
 
 
@@ -126,7 +145,8 @@ header {
 main {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: stretch;
-    padding: 25px 100px 0px 100px;
+    grid-template-columns: auto 1fr auto;
+    grid-gap: 50px;
+    justify-items: center;
+    padding: 0px 100px 0px 100px;
 }

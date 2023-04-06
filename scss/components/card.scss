@@ -1,9 +1,9 @@
+pre {
+    margin: 0;
+}
+
 .card__container {
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
-    height: 364px;
+    height: max-content;
     width: 380px;
 
     & .card--imgSection {
@@ -19,6 +19,7 @@
     }
 
     & .card--txtSection {
+        height: 186px;
         display: flex;
         flex-direction: column;
         padding: 20px 20px 20px 20px;
@@ -68,6 +69,7 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
 
+
         & ul {
             list-style: none;
             padding: 0;
@@ -89,6 +91,8 @@
 
         }
 
+
+
         & p {
             font-family: 'Roboto';
             font-style: normal;
@@ -96,6 +100,13 @@
             font-size: 12px;
             line-height: 12px;
             color: #000000;
+            //limiter le nompre de ligne pour pouvoir afficher les points de suspenssions
+            display: -webkit-box;
+            -webkit-line-clamp: 6;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
         }
     }
 }

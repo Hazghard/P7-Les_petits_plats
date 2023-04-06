@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 /*!
  * Bootstrap Grid v5.3.0-alpha1 (https://getbootstrap.com/)
@@ -4235,6 +4234,7 @@ h3 {
 
 .btn {
   height: 69px;
+  border-color: transparent;
 }
 
 .dropdownFilters__container {
@@ -4247,13 +4247,25 @@ h3 {
   position: absolute;
 }
 
+.dropdown-item {
+  border: 1px solid transparent;
+  border-radius: 90px;
+  background-color: initial;
+}
+
+.dropdown-item:hover {
+  border: 1px solid white;
+  border-radius: 90px;
+  background-color: initial;
+}
+
 .dropdown-menu {
-  position: unset;
+  position: absolute;
+  border: none;
 }
 
 .dropdown input[type=text] {
   width: 100%;
-  /* ou une valeur appropriée pour votre cas */
 }
 
 .colonne {
@@ -4329,8 +4341,36 @@ h3 {
   border-radius: 50%;
 }
 
+ul.dropdown-menu.ingredientsFilter {
+  background-color: #3282F7;
+  border-radius: 0px 0px 5px 5px;
+}
+ul.dropdown-menu.ingredientsFilter li > a {
+  color: white;
+}
+
+ul.dropdown-menu.appareilsFilter {
+  background-color: #68D9A4;
+  border-radius: 0px 0px 5px 5px;
+}
+ul.dropdown-menu.appareilsFilter li > a {
+  color: white;
+}
+
+ul.dropdown-menu.ustensilesFilter {
+  background-color: #ED6454;
+  border-radius: 0px 0px 5px 5px;
+}
+ul.dropdown-menu.ustensilesFilter li > a {
+  color: white;
+}
+
+pre {
+  margin: 0;
+}
+
 .card__container {
-  height: 364px;
+  height: max-content;
   width: 380px;
 }
 .card__container .card--imgSection {
@@ -4340,6 +4380,7 @@ h3 {
   border-radius: 5px 5px 0px 0px;
 }
 .card__container .card--txtSection {
+  height: 186px;
   display: flex;
   flex-direction: column;
   padding: 20px 20px 20px 20px;
@@ -4406,6 +4447,11 @@ h3 {
   font-size: 12px;
   line-height: 12px;
   color: #000000;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 * {
@@ -4452,9 +4498,10 @@ header h1 {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   position: relative;
   padding: 0px 100px 0px 100px;
+  min-height: 240px;
 }
 .section--filters__container .textFilter__container {
   width: 100%;
@@ -4462,6 +4509,7 @@ header h1 {
   justify-content: center;
   align-items: center;
   position: relative;
+  padding-bottom: 20px;
 }
 .section--filters__container .textFilter__container .recipeFilter__input {
   width: 100%;
@@ -4485,8 +4533,17 @@ header h1 {
 /* ----------------------------------------------------------- */
 /* ----------------------------------------------------------- */
 /* ----------------------------------------------------------- */
+.currentFilters__container:empty {
+  display: none;
+  padding: 0px 0px 0px 0px;
+}
+
 .currentFilters__container {
-  padding: 25px 0px 15px 0px;
+  padding: 5px 0px 15px 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 .currentFilters__container .filterBtn {
   display: flex;
@@ -4506,6 +4563,9 @@ header h1 {
   font-size: 20px;
   font-size: 300;
 }
+.currentFilters__container .filterBtn .fa-circle-xmark:hover {
+  color: #141313;
+}
 
 /* ----------------------------------------------------------- */
 /* ----------------------------------------------------------- */
@@ -4513,7 +4573,8 @@ header h1 {
 main {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-items: stretch;
-  padding: 25px 100px 0px 100px;
+  grid-template-columns: auto 1fr auto;
+  grid-gap: 50px;
+  justify-items: center;
+  padding: 0px 100px 0px 100px;
 }

@@ -2,8 +2,8 @@
 .btn {
     // width: 170px;
     height: 69px;
+    border-color: transparent;
 }
-
 
 .dropdownFilters__container {
     display: flex;
@@ -16,15 +16,26 @@
     }
 }
 
+.dropdown-item {
+    border: 1px solid transparent;
+    border-radius: 90px;
+    background-color: initial;
+}
+
+.dropdown-item:hover {
+    border: 1px solid white;
+    border-radius: 90px;
+    background-color: initial;
+}
+
 .dropdown-menu {
     // display: block;
-    position: unset;
+    position: absolute;
+    border: none;
 }
 
 .dropdown input[type="text"] {
     width: 100%;
-    // max-width: 80%;
-    /* ou une valeur appropriée pour votre cas */
 }
 
 .colonne {
@@ -110,5 +121,40 @@
         height: 1.75rem;
         border: 1px solid rgba(255, 255, 255, 0.4);
         border-radius: 50%;
+    }
+}
+
+
+// -------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------
+//          UL > DROPDOWN
+
+ul.dropdown-menu.ingredientsFilter {
+    background-color: $color__ingredients;
+    border-radius: 0px 0px 5px 5px;
+
+    & li > a {
+        color: white;
+    }
+}
+
+ul.dropdown-menu.appareilsFilter {
+    background-color: $color__appareils;
+    border-radius: 0px 0px 5px 5px;
+
+
+    & li > a {
+        color: white;
+    }
+}
+
+
+ul.dropdown-menu.ustensilesFilter {
+    background-color: $color__ustensiles;
+    border-radius: 0px 0px 5px 5px;
+
+
+    & li > a {
+        color: white;
     }
 }

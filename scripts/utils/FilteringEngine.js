@@ -7,7 +7,7 @@ import { recipeCard } from "../factory/recipesFactory.js"
 export let filteredRecipies = [];
 
 export function filteringEngine(choosenFilters) {
-    filterRecipes(choosenFilters);
+    filterRecipesv2(choosenFilters);
 }
 
 
